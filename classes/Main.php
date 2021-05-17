@@ -5,7 +5,7 @@ include_once 'Storage.php';
 class Main
 {
     /**
-     * Inititialization function
+     * Initialization function
      */
     static function init()
     {
@@ -15,7 +15,7 @@ class Main
             $file = fopen(Storage::$storageFile, 'r+');
             file_put_contents(Storage::$storageFile, $_POST['note']);
             fclose($file);
-            header("Location: index.php");
+            self::redirect();
         }elseif (!is_int($_GET['id'])){
             self::error404();
         } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['id'])){
@@ -32,8 +32,11 @@ class Main
         return 'There is no page, fatality';
     }
 
+    /**
+     * Redirect on /
+     */
     static function redirect(){
-        header('Location: ./');
+        header('Location: index.php');
         exit();
     }
 }
