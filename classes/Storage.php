@@ -16,23 +16,18 @@ class Storage
     /** return array of notes
      * @return mixed
      */
-    public function getAllNotes(){
-        $handler = fopen($this->storageFile, 'r');
-        $notes = file_get_contents($this->storageFile);
-        $decodeNote = json_decode($notes);
-        fclose($handler);
-        return $notes;
+    public function getAllNotes()
+    {
+        return file_get_contents($this->storageFile);
     }
 
     /** function add note
      * @param string $note
      */
-    public function addNotes($note){
-        if(!empty($note)){
-            $codedNotes[] = json_encode($note);
-            $fileHandler = fopen($this->storageFile, 'a+');
-            file_put_contents($this->storageFile, $codedNotes, FILE_APPEND);
-            fclose($fileHandler);
-        }
+    public function addNotes($note)
+    {
+        $file = fopen($this->storageFile, 'a+');
+        fwrite($file, $note.",\r\n");
+        fclose($file);
     }
 }

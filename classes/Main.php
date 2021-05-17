@@ -9,7 +9,7 @@ class Main
      */
     static function init()
     {
-        $storage = new Storage("data/data.json");
+        $storage = new Storage("data/data.txt");
         if ($_SERVER['REQUEST_METHOD'] === 'GET' && empty($_GET['id'])) {
             $storage->getAllNotes();
         } elseif ($_SERVER['REQUEST_METHOD'] === 'POST'){

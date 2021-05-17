@@ -1,7 +1,7 @@
 <?php
     include_once '../classes/Page.php';
     include_once '../classes/Storage.php';
-    $storage = new Storage("data/data.json");
+    $storage = new Storage("data/data.txt");
 ?>
 <!doctype html>
 <html lang="en">
