@@ -6,18 +6,22 @@ class Storage
     /** store the data file
      * @var string
      */
-    static public $storageFile = "../data/data.json";
+    public $storageFile;
 
     public function __construct($storageFile)
     {
-        self::$storageFile = $storageFile;
+        $this->storageFile = $storageFile;
     }
 
     /** return array of notes
      * @return mixed
      */
-    static public function getAllNotes(){
-        return file_get_contents(self::$storageFile);
+    public function getAllNotes(){
+        $handler = fopen($this->storageFile, 'r');
+        $notes = file_get_contents($this->storageFile);
+        $decodeNote = json_decode($notes);
+        fclose($handler);
+        return $notes;
     }
 
     /** function add note
@@ -25,9 +29,9 @@ class Storage
      */
     public function addNotes($note){
         if(!empty($note)){
-            $codedNotes = json_encode($note);
-            $fileHandler = fopen(self::$storageFile, 'r+');
-            file_put_contents(self::$storageFile, $codedNotes, FILE_APPEND);
+            $codedNotes[] = json_encode($note);
+            $fileHandler = fopen($this->storageFile, 'a+');
+            file_put_contents($this->storageFile, $codedNotes, FILE_APPEND);
             fclose($fileHandler);
         }
     }
