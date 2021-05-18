@@ -12,7 +12,7 @@ class Page
         $this->templateFile = $templateFile;
     }
 
-    public function render($data){
+    public function render($data = null){
         include_once $this->templateFile;
     }
 }

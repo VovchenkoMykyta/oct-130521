@@ -1,6 +1,5 @@
 <?php
     include_once 'index.php';
-    $page = new Page('all_notes_page.php', 'main_template.php');
     $storage = new Storage('data/data.json');
 ?>
 <!doctype html>
@@ -52,7 +51,7 @@
             </form>
             <?php
             if ($_SERVER['REQUEST_METHOD'] === 'GET' && empty($_GET['id'])) {
-                include_once $page->pageFile;
+                include_once $this->pageFile;
             } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['id']) && preg_match('/^\d+$/', $_GET['id'])){
                 include_once "html/one_note_page.php";
             }
