@@ -10,4 +10,5 @@ spl_autoload_register(function ($className){
 });
 Main::init();
 $page = new Page('html/all_notes_page.php', 'html/main_template.php');
-$page->render('data');
+$page->render();
+

@@ -18,7 +18,7 @@ class Storage
      */
     public function getAllNotes()
     {
-        return file_get_contents($this->storageFile);
+        return json_decode(file_get_contents($this->storageFile));
     }
 
     /** function add note
@@ -26,7 +26,16 @@ class Storage
      */
     public function addNotes($note)
     {
-        $codedNote = "<p>".json_encode($note)."</p>";
-        file_put_contents($this->storageFile, $codedNote, 8);
+        $notes = $this->getAllNotes();
+        $notes[] = $note;
+        $codedNote = json_encode($notes);
+        file_put_contents($this->storageFile, $codedNote);
+    }
+
+    public function getOneNote($id){
+        $notes[] = $this->getAllNotes();
+        foreach ($notes as $id => $note){
+            echo $note[$id];
+        }
     }
 }

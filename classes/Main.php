@@ -15,12 +15,10 @@ class Main
         } elseif ($_SERVER['REQUEST_METHOD'] === 'POST'){
             $storage->addNotes($_POST['note']);
             self::redirect();
-        }elseif (!is_int($_GET['id'])){
-            self::error404();
+//        }elseif (!is_int($_GET['id'])){
+//            self::error404();
         } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['id'])){
-            $newFile = fopen($storage->storageFile, 'r+');
-            file_get_contents($storage->storageFile, false,null,$_GET['id']);
-            fclose($newFile);
+            include_once "html/one_note_page.php";
         }
     }
 

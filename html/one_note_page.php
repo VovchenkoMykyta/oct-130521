@@ -1,2 +1,5 @@
-<?php
-echo "<div>One note</div>";
+<div>
+    <?php
+        $storage->getOneNote($_GET['id']);
+    ?>
+</div>

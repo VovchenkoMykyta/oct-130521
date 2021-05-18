@@ -50,12 +50,14 @@
                 <input type="submit" value="Add note">
             </form>
             <?php
-            if ($_SERVER['REQUEST_METHOD'] === 'GET' && empty($_GET['id'])) {
+            if($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['id'])){
+                $page = new Page('html/one_note_page.php');
+                include_once $page->pageFile;
+            } else {
                 include_once $this->pageFile;
-            } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['id']) && preg_match('/^\d+$/', $_GET['id'])){
-                include_once "html/one_note_page.php";
             }
-            ?>
+
+             ?>
         </main>
         <footer>
             oct-160521 &copy;
