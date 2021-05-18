@@ -26,7 +26,7 @@ class Storage
      */
     public function addNotes($note)
     {
-        $codedNote = json_encode($note)."</br>";
+        $codedNote = "<p>".json_encode($note)."</p>";
         file_put_contents($this->storageFile, $codedNote, 8);
     }
 }
