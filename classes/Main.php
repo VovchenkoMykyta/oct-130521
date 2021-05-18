@@ -28,7 +28,8 @@ class Main
      * @return string
      */
     static function error404(){
-        return 'There is no page, fatality';
+        echo 'There is no page, fatality';
+        exit();
     }
 
     /**
