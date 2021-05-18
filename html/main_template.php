@@ -1,6 +1,7 @@
 <?php
     include_once 'index.php';
     $page = new Page('all_notes_page.php', 'main_template.php');
+    $storage = new Storage('data/data.txt');
 ?>
 <!doctype html>
 <html lang="en">
