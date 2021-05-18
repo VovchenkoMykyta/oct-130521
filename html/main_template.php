@@ -21,7 +21,7 @@
                 text-align: center;
             }
             main{
-                min-height: 700px;
+                min-height: 410px;
                 margin: 60px auto;
             }
             main div{
@@ -33,7 +33,7 @@
                 display: flex;
                 flex-direction: column;
                 margin: 5px auto;
-                width: 10%;
+                width: 20%;
             }
             footer{
                 min-height: 30px;

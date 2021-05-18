@@ -13,12 +13,12 @@ class Storage
         $this->storageFile = $storageFile;
     }
 
-    /** return array of notes
-     * @return mixed
+    /** return notes
+     * @return string|bool
      */
     public function getAllNotes()
     {
-        return json_decode(file_get_contents($this->storageFile));
+        return file_get_contents($this->storageFile);
     }
 
     /** function add note
@@ -28,8 +28,5 @@ class Storage
     {
         $codedNote = json_encode($note)."</br>";
         file_put_contents($this->storageFile, $codedNote, 8);
-//        $file = fopen($this->storageFile, 'a+');
-//        fwrite($file, $note.";<br/>");
-//        fclose($file);
     }
 }

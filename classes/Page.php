@@ -1,6 +1,4 @@
 <?php
-include_once "classes/Storage.php";
-include_once "classes/Main.php";
 
 
 class Page
