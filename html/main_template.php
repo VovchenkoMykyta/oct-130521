@@ -27,7 +27,7 @@
             main div{
                 width: 40%;
                 margin-top: 60px;
-                margin-left: 40%;
+                margin-left: 30%;
             }
             form{
                 display: flex;
