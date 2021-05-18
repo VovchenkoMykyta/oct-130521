@@ -15,10 +15,6 @@ class Page
     }
 
     public function render($data){
-        if ($_SERVER['REQUEST_METHOD'] === 'GET' && empty($_GET['id'])) {
-            include_once "html/all_notes_page.php";
-        } elseif ($_SERVER['REQUEST_METHOD'] === 'GET' && !empty($_GET['id']) && preg_match('/^\d+$/', $_GET['id'])){
-            include_once "html/one_note_page.php";
-        }
+        include_once $this->templateFile;
     }
 }

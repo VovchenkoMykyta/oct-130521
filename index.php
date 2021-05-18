@@ -9,12 +9,5 @@ spl_autoload_register(function ($className){
    }
 });
 Main::init();
-$storage = new Storage("data/data.txt");
-?>
-
-<form method="post">
-    <textarea name="note" placeholder="Enter note"></textarea>
-    <input type="submit" name="submit">
-</form>
-<?php echo $storage->getAllNotes();?>
-
+$page = new Page('html/all_notes_page.php', 'html/main_template.php');
+$page->render('data');

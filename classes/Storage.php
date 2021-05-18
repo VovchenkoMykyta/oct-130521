@@ -27,7 +27,7 @@ class Storage
     public function addNotes($note)
     {
         $file = fopen($this->storageFile, 'a+');
-        fwrite($file, $note.",\r\n");
+        fwrite($file, $note.";\r\n");
         fclose($file);
     }
 }

@@ -1,4 +1,5 @@
-note 1
-note 2
-note 3,
-note 4,
+note 1;
+note 2;
+some note, what to say
+Great;
+Hello world;
