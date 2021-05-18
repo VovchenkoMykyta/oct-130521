@@ -18,7 +18,7 @@ class Storage
      */
     public function getAllNotes()
     {
-        return file_get_contents($this->storageFile);
+        return json_decode(file_get_contents($this->storageFile));
     }
 
     /** function add note
@@ -26,8 +26,10 @@ class Storage
      */
     public function addNotes($note)
     {
-        $file = fopen($this->storageFile, 'a+');
-        fwrite($file, $note.";\r\n");
-        fclose($file);
+        $codedNote = json_encode($note)."</br>";
+        file_put_contents($this->storageFile, $codedNote, 8);
+//        $file = fopen($this->storageFile, 'a+');
+//        fwrite($file, $note.";<br/>");
+//        fclose($file);
     }
 }
